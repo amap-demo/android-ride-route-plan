@@ -1,5 +1,5 @@
 # android-ride-route-plan
-自行车路径规划示例
+骑行路径规划示例
 ## 前述 ##
 - [高德官网申请Key](http://lbs.amap.com/dev/#/).
 - 阅读
