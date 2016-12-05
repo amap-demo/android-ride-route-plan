@@ -13,7 +13,7 @@
 
 ## 扫一扫安装##
 
- ![Screenshot](https://github.com/amap-demo/android-ride-route-plan/raw/master/resource/download.png)
+ ![Screenshot](https://github.com/amap-demo/android-ride-route-plan/blob/master/resource/download.png)
 
 ## 示例效果##
 
