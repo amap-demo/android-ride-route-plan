@@ -21,9 +21,11 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="98e2bacfe15d1bf1ee7ba3e61289a69a" />
+            android:value="您的key" />
 
-        <activity android:name=".RideRouteActivity">
+        <activity
+            android:name=".RideRouteActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
