@@ -23,7 +23,7 @@ public class RideRouteOverlay extends RouteOverlay {
 
 	private PolylineOptions mPolylineOptions;
 	
-	private BitmapDescriptor walkStationDescriptor= null;
+	private BitmapDescriptor rideStationDescriptor= null;
 
 	private RidePath ridePath;
 	/**
@@ -87,20 +87,20 @@ public class RideRouteOverlay extends RouteOverlay {
 				.title("\u65B9\u5411:" + rideStep.getAction()
 						+ "\n\u9053\u8DEF:" + rideStep.getRoad())
 				.snippet(rideStep.getInstruction()).visible(nodeIconVisible)
-				.anchor(0.5f, 0.5f).icon(walkStationDescriptor));
+				.anchor(0.5f, 0.5f).icon(rideStationDescriptor));
 	}
 	
 	 /**
      * 初始化线段属性
      */
     private void initPolylineOptions() {
-    	
-    	if(walkStationDescriptor == null) {
-    		walkStationDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.amap_ride);
+		rideStationDescriptor = getRideBitmapDescriptor();
+    	if(rideStationDescriptor == null) {
+			rideStationDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.amap_ride);
     	}
         mPolylineOptions = null;
         mPolylineOptions = new PolylineOptions();
-        mPolylineOptions.color(getDriveColor()).width(getRouteWidth());
+        mPolylineOptions.color(getRideColor()).width(getRouteWidth());
     }
 	 private void showPolyline() {
 	        addPolyLine(mPolylineOptions);
