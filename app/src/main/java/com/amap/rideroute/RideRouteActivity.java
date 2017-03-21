@@ -36,7 +36,7 @@ import com.amap.rideroute.overlay.RideRouteOverlay;
 
 
 public class RideRouteActivity extends Activity implements OnMapClickListener,
-        OnMarkerClickListener, OnInfoWindowClickListener, InfoWindowAdapter, OnRouteSearchListener {
+        OnMarkerClickListener, OnInfoWindowClickListener, InfoWindowAdapter, OnRouteSearchListener, AMap.OnMapLoadedListener {
     private AMap aMap;
     private MapView mapView;
     private Context mContext;
@@ -60,7 +60,7 @@ public class RideRouteActivity extends Activity implements OnMapClickListener,
         mapView.onCreate(bundle);// 此方法必须重写
         init();
         setfromandtoMarker();
-        searchRouteResult(ROUTE_TYPE_RIDE, RouteSearch.RidingDefault);
+
     }
 
     private void setfromandtoMarker() {
@@ -92,6 +92,7 @@ public class RideRouteActivity extends Activity implements OnMapClickListener,
      * 注册监听
      */
     private void registerListener() {
+        aMap.setOnMapLoadedListener(RideRouteActivity.this);
         aMap.setOnMapClickListener(RideRouteActivity.this);
         aMap.setOnMarkerClickListener(RideRouteActivity.this);
         aMap.setOnInfoWindowClickListener(RideRouteActivity.this);
@@ -267,6 +268,11 @@ public class RideRouteActivity extends Activity implements OnMapClickListener,
         } else {
             ToastUtil.showerror(this.getApplicationContext(), errorCode);
         }
+    }
+
+    @Override
+    public void onMapLoaded() {
+        searchRouteResult(ROUTE_TYPE_RIDE, RouteSearch.RIDING_DEFAULT);
     }
 }
 
